@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/portalpap"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "build": "yarn rollup",
@@ -28,8 +28,6 @@
     "@rollup/plugin-typescript": "^11.0.0",
     "@testing-library/react": "^13.3.0",
     "@types/react": "^18.0.15",
-    "css-loader": "^6.5.1",
-    "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "postcss": "^8.4.30",
     "react": "^18.2.0",
@@ -38,8 +36,6 @@
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-postcss": "^4.0.1",
     "sass": "^1.43.5",
-    "sass-loader": "^12.3.0",
-    "style-loader": "^3.3.1",
     "tslib": "^2.6.2",
     "typescript": "^4.7.4"
   },
