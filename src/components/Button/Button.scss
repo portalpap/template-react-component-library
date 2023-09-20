@@ -1,3 +1,103 @@
-button {
-  font-size: 60px;
+.trButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: background-color 300ms;
+
+  &.contained {
+    box-shadow: 0 3px 9px -2px rgba(0, 0, 0, 0.4);
+    &.primary {
+      background-color: #ffde59;
+      &:hover {
+        background-color: #f5c400;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    &.secondary {
+      color: #ffffff;
+      background-color: #333333;
+      &:hover {
+        background-color: #0c0c0c;
+      }
+    }
+    &.tertiary {
+    }
+  }
+
+  &.text {
+    background-color: none;
+    &.primary {
+      color: #cca300;
+      &:hover {
+        background-color: #fffdf2;
+      }
+    }
+
+    &.secondary {
+      color: black;
+      &:hover {
+        background-color: #efefef;
+      }
+    }
+    &.tertiary {
+    }
+  }
+
+  &.outlined {
+    background-color: #fff;
+    &.primary {
+      border: 1px solid #d8ba40;
+
+      &:hover {
+        background-color: #fbf8eb;
+      }
+    }
+
+    &.secondary {
+      border: 1px solid #666666;
+      &:hover {
+        background-color: #efefef;
+      }
+    }
+
+    &.tertiary {
+    }
+  }
+
+  &.none {
+    background-color: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  > .ripple {
+    position: absolute;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: ripples 0.6s linear infinite;
+  }
+  @keyframes ripples {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.5;
+    }
+    100% {
+      width: 500px;
+      height: 500px;
+      opacity: 0;
+    }
+  }
 }

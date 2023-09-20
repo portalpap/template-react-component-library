@@ -1,24 +1,22 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'ReactComponentLibrary/Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+const meta = {
+	title: 'Components/Button',
+	component: Button,
+	parameters: {
+		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
+		layout: 'centered'
+	},
+} satisfies Meta<typeof Button>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const HelloWorld = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: 'Hello world!',
-};
-
-export const ClickMe = Template.bind({});
-ClickMe.args = {
-  label: 'Click me!',
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const ContainedPrimary: Story = {
+	args: {
+	}
 };
