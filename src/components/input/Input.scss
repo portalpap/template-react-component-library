@@ -1,0 +1,314 @@
+$errorColor: #f44336;
+
+$grayColor: #c3c3c3;
+
+$blueColor: #90caf9;
+
+.rsInput.uiStyled {
+	color: $grayColor;
+
+	width: 100%;
+
+	margin: 0 auto;
+
+	font-family: inherit;
+
+	.inputLabelArea {
+		position: relative;
+
+		&:after {
+			left: 0;
+
+			right: 0;
+
+			bottom: 0;
+
+			content: '\00a0';
+
+			position: absolute;
+
+			border-bottom: 1px solid $grayColor;
+
+			pointer-events: none;
+
+			transform: scaleX(0);
+		}
+	}
+
+	.input {
+		color: rgba(0, 0, 0, 0.87);
+
+		position: relative;
+
+		outline: none;
+
+		border: none;
+
+		overflow: hidden;
+
+		margin: 0;
+
+		width: 100%;
+
+		box-sizing: content-box;
+
+		background: none !important;
+
+		font-size: 16px;
+
+		font-weight: 500;
+
+		font-family: inherit;
+
+		z-index: 1;
+
+		padding: 0;
+	}
+
+	.label {
+		position: absolute;
+
+		left: 0;
+
+		bottom: 17px;
+
+		transform: translateY(10px);
+
+		transform-origin: 0;
+
+		transition: transform 200ms;
+
+		font-weight: 500;
+	}
+
+	.rsIcon {
+		margin-right: 5px;
+	}
+
+	&:focus-within .label,
+	.input:not(:placeholder-shown) + .label {
+		transform: scale(0.8) translateY(-12px);
+
+		opacity: 1;
+
+		z-index: 1;
+	}
+
+	&.textarea {
+		.inputTextArea {
+			position: relative;
+
+			outline: none;
+
+			border: none;
+
+			overflow: hidden;
+
+			margin: 0;
+
+			width: 100%;
+
+			padding: 6px 0 7px;
+
+			box-sizing: content-box;
+
+			background: none !important;
+
+			font-size: 16px;
+
+			font-weight: 500;
+
+			font-family: inherit;
+
+			z-index: 1;
+		}
+
+		.labelTextArea {
+			position: absolute;
+
+			left: 0;
+
+			top: -6px;
+
+			transform: translateY(10px);
+
+			transform-origin: 0%;
+
+			transition: transform 400ms;
+
+			font-weight: 500;
+		}
+
+		&:focus-within .labelTextArea,
+		.inputTextArea:not(:placeholder-shown) + .labelTextArea {
+			transform: scale(0.8) translateY(-17px);
+
+			opacity: 1;
+
+			z-index: 1;
+		}
+	}
+
+	&.standard {
+		.inputLabelArea {
+			border-bottom: 1px solid $grayColor;
+
+			.input {
+				padding: 6px 0 7px;
+			}
+
+			&:focus-within {
+				.label {
+					color: $blueColor;
+				}
+
+				border-bottom: 1px solid $blueColor;
+
+				&:after {
+					transform: scaleX(1);
+
+					border-bottom-color: $blueColor;
+				}
+			}
+
+			&:hover {
+				transition: 0ms;
+
+				&:after {
+					transform: scaleX(1);
+				}
+			}
+		}
+
+		&.error .inputLabelArea {
+			.label {
+				color: $errorColor;
+			}
+
+			border-bottom: 1px solid $errorColor;
+
+			&:after {
+				border-bottom-color: $errorColor;
+			}
+		}
+	}
+
+	&.filled {
+		.inputLabelArea {
+			background-color: #353535;
+
+			box-sizing: border-box;
+
+			border-top-left-radius: 4px;
+
+			border-top-right-radius: 4px;
+
+			border-bottom: 2px solid $grayColor;
+
+			.input {
+				padding: 27px 12px 10px;
+
+				color: white;
+			}
+
+			&:focus-within {
+				color: $blueColor !important;
+
+				border-bottom: 2px solid $blueColor !important;
+			}
+
+			&:hover {
+			}
+
+			.label {
+				left: 12px;
+
+				bottom: 26px;
+			}
+
+			.labelTextArea {
+				left: 12px;
+
+				top: 21px;
+			}
+		}
+	}
+
+	&.outlined {
+		background: inherit !important;
+
+		.inputLabelArea {
+			box-sizing: border-box;
+
+			border: 1px solid $grayColor;
+
+			border-radius: 4px;
+
+			background: inherit !important;
+
+			.input {
+				padding: 18px 14px;
+			}
+
+			.label {
+				left: 13px;
+
+				margin: auto;
+
+				transform: translateY(0);
+
+				background: inherit !important;
+
+				padding: 0 5px;
+
+				box-sizing: border-box;
+			}
+
+			.labelTextArea {
+				left: 10px;
+
+				top: 12px;
+
+				background: inherit !important;
+
+				padding: 0 5px;
+
+				box-sizing: border-box;
+			}
+
+			&:hover {
+				border: 1px solid white;
+			}
+
+			&:focus-within {
+				color: $blueColor;
+
+				border: 1px solid $blueColor;
+			}
+
+			&:focus-within .label,
+			.input:not(:placeholder-shown) + .label {
+				transform: scale(0.8) translateY(-40px);
+
+				opacity: 1;
+
+				z-index: 1;
+			}
+
+			&:focus-within .labelTextArea,
+			.inputTextArea:not(:placeholder-shown) + .labelTextArea {
+				transform: scale(0.8) translateY(-31px);
+
+				opacity: 1;
+
+				z-index: 1;
+			}
+		}
+	}
+}
+
+.rsInputErrorMessage {
+	text-align: left;
+
+	color: #f44336;
+}

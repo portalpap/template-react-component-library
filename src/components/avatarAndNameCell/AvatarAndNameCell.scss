@@ -1,0 +1,33 @@
+.rsAvatarAndNameCell {
+	align-items: center;
+
+	color: black;
+
+	white-space: nowrap;
+
+	width: auto;
+
+	margin: 0 5px;
+
+	display: table-cell;
+
+	align-content: flex-start;
+
+	padding: 10px 5px;
+
+	span {
+		display: flex;
+
+		flex-direction: row;
+
+		align-items: center;
+	}
+
+	.avatarImage {
+		margin-right: 10px;
+
+		margin-left: 6px;
+
+		color: black;
+	}
+}

@@ -1,0 +1,31 @@
+$gray: #adadad;
+
+.rsFilterDropdownCell {
+	box-sizing: border-box;
+
+	margin-right: 40px;
+
+	&.rsSelect.standard {
+		width: 100%;
+
+		font-size: 14px;
+
+		z-index: 1;
+
+		.label {
+			font-weight: 500;
+		}
+
+		.options {
+			width: 100%;
+
+			color: white;
+		}
+
+		&:hover {
+			color: black;
+
+			filter: none;
+		}
+	}
+}

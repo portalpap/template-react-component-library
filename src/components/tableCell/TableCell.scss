@@ -1,0 +1,73 @@
+.rsTableCell {
+	white-space: nowrap;
+
+	width: auto;
+
+	margin: 0 5px;
+
+	display: table-cell;
+
+	flex-direction: row;
+
+	align-content: flex-start;
+
+	padding: 10px 0;
+
+	th {
+		cursor: pointer;
+
+		&:hover {
+			transition: 0.3s all;
+
+			background: blue;
+		}
+	}
+
+	&.centerAlign {
+		display: table-cell;
+
+		text-align: center;
+
+		align-items: flex-start;
+
+		justify-content: center;
+	}
+
+	&.inheritClass {
+		display: table-cell;
+
+		text-align: inherit;
+
+		align-items: flex-start;
+
+		justify-content: inherit;
+	}
+
+	&.justifyClass {
+		display: table-cell;
+
+		text-align: justify;
+
+		align-items: flex-start;
+	}
+
+	&.leftAlign {
+		display: table-cell;
+
+		text-align: left;
+
+		align-items: flex-start;
+
+		justify-content: flex-start;
+	}
+
+	&.rightAlign {
+		display: table-cell;
+
+		text-align: right;
+
+		align-items: flex-start;
+
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,25 @@
+.rsTable {
+	padding: 0 28px;
+
+	background-color: #fff;
+
+	.uiTableInputs {
+		margin-top: 32px;
+
+		background-color: #fff;
+
+		.rsInput.uiStyled.outlined {
+			width: 409px;
+
+			margin: 0;
+		}
+	}
+
+	.rsTableContainer {
+		width: 100%;
+
+		border-collapse: collapse;
+
+		margin-top: 21px;
+	}
+}

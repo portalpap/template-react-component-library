@@ -1,0 +1,11 @@
+.rsLabel {
+}
+
+.rsLabelShowMoreButton {
+	margin-top: 5px;
+	width: fit-content;
+	width: -moz-fit-content;
+	&:hover {
+		cursor: pointer;
+	}
+}

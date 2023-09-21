@@ -1,0 +1,11 @@
+.rsTableRow {
+	box-sizing: border-box;
+
+	min-height: 50px;
+
+	max-height: 50px;
+
+	&:hover {
+		background: gray;
+	}
+}

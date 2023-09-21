@@ -1,0 +1,102 @@
+.rsAccordion {
+	position: relative;
+	width: 100%;
+	transition: 0.4s;
+	overflow: hidden;
+
+	.articleItemHeader {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 50px;
+		padding: 0 10px;
+		box-sizing: border-box;
+		width: 100%;
+		.labelWrapper {
+			display: flex;
+			align-items: center;
+			.label {
+				font-size: 14px;
+				font-weight: 700;
+			}
+
+			.marginLeft {
+				margin-left: 10px;
+			}
+		}
+		> .ripple {
+			position: absolute;
+			background: rgba(255, 255, 255, 0.3);
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+			border-radius: 50%;
+			animation: ripples 0.6s linear;
+		}
+
+		@keyframes ripples {
+			0% {
+				width: 0px;
+				height: 0px;
+				opacity: 0.5;
+			}
+			100% {
+				width: 500px;
+				height: 500px;
+				opacity: 0;
+			}
+		}
+	}
+
+	&.hoverEffect {
+		transition: filter 300ms;
+		&:hover {
+			filter: brightness(1.2);
+		}
+	}
+
+	.iconSpinUp {
+		animation-name: spinUp;
+		animation-duration: 0.4s;
+		transform: rotate(0deg);
+		margin-left: auto;
+	}
+
+	.iconSpinDown {
+		animation-name: spinDown;
+		animation-duration: 0.4s;
+		transform: rotate(-180deg);
+		margin-left: auto;
+	}
+
+	@keyframes spinDown {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-180deg);
+		}
+	}
+
+	@keyframes spinUp {
+		0% {
+			transform: rotate(-180deg);
+		}
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+
+	.articleItemChildren {
+		height: 0;
+		overflow: hidden;
+		transition: height 0.2s ease-out;
+
+		&.opened {
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}

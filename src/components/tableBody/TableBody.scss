@@ -1,0 +1,27 @@
+$rowBorder: #e0e0e0;
+
+.rsTableBody {
+	tr {
+		border-top: 1px solid $rowBorder;
+
+		vertical-align: middle;
+	}
+
+	tr:hover {
+		transition: 0.3s all;
+
+		cursor: pointer;
+
+		background: rgba(0, 0, 0, 0.04);
+	}
+
+	tr:last-child {
+		border-bottom: 1px solid $rowBorder;
+	}
+
+	&.filterShown {
+		tr:first-child:hover {
+			background: transparent;
+		}
+	}
+}

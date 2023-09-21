@@ -1,0 +1,96 @@
+.rsTablePagination {
+	display: flex;
+
+	flex-direction: row;
+
+	justify-content: flex-end;
+
+	align-items: center;
+
+	margin-right: 10px;
+
+	font-weight: 400;
+
+	vertical-align: middle;
+
+	.rowsPerPage {
+		margin-right: 32px;
+
+		display: flex;
+
+		flex-direction: row;
+
+		.rowsPerPageLabel {
+			padding-right: 4px;
+
+			color: black;
+		}
+	}
+
+	.index {
+		margin-right: 40px;
+	}
+
+	.pageNavigationContainer {
+		display: flex;
+
+		flex-direction: row;
+
+		align-items: center;
+
+		.pageNumberSelection {
+			display: flex;
+
+			flex-direction: row;
+
+			align-items: center;
+
+			justify-content: center;
+
+			margin: 3px;
+
+			padding: 10px;
+
+			height: 18px;
+
+			width: 18px;
+
+			border-bottom: 2px solid transparent;
+
+			cursor: pointer;
+
+			transition: 0.5s all;
+
+			border-radius: 50%;
+
+			&.selected {
+				background: #ffde59;
+
+				border-radius: 50%;
+			}
+
+			&.notSelectable {
+				&:hover {
+					border-radius: 50%;
+
+					background: none;
+				}
+			}
+
+			&:hover {
+				border-radius: 50%;
+
+				background: #ffde59;
+
+				border-bottom: 2px solid transparent;
+			}
+		}
+		.chevronSelect {
+			cursor: pointer;
+			&:hover {
+				border-radius: 50%;
+				background: #ffde59;
+			}
+		}
+	}
+}

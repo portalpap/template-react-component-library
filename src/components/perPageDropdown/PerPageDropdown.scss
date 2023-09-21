@@ -1,0 +1,51 @@
+$lightGray: #e0e0e0;
+
+.rsPerPageDropdown {
+	display: flex;
+
+	flex-direction: row;
+
+	align-items: center;
+
+	justify-content: center;
+
+	position: relative;
+
+	cursor: pointer;
+
+	font-weight: 500;
+
+	.chevronDown {
+		margin-left: 5px;
+
+		margin-top: 3px;
+	}
+
+	.optionsContainer {
+		position: absolute;
+
+		left: 35px;
+
+		bottom: -40px;
+
+		font-size: 14px;
+
+		border-radius: 3px;
+
+		background: white;
+
+		transition: 0.3s all;
+
+		box-shadow: 1px 3px 8px -4px rgba(0, 0, 0, 0.3);
+
+		.selectableOptions {
+			transition: 0.3s all;
+
+			padding: 5px 8px;
+
+			&:hover {
+				background: $lightGray;
+			}
+		}
+	}
+}

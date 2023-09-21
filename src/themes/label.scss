@@ -1,0 +1,144 @@
+@import 'themes';
+
+html {
+	font-family: 'Nunito', sans-serif;
+}
+
+/* Label Styles collected from Stylesheet */
+.rsLabel {
+	font-family: 'Nunito', sans-serif;
+	color: theme-var($primaryTextColor);
+
+	&.h1 {
+		font-size: 60px;
+		line-height: 65px;
+		font-weight: $fwExtraBold;
+	}
+	&.h1Mobile {
+		font-size: 36px;
+		line-height: 38px;
+		font-weight: $fwExtraBold;
+	}
+	&.h2 {
+		font-size: 50px;
+		line-height: 55px;
+		font-weight: $fwExtraBold;
+	}
+	&.h3 {
+		font-size: 40px;
+		line-height: 45px;
+		font-weight: $fwExtraBold;
+	}
+	&.h4 {
+		font-size: 30px;
+		line-height: 35px;
+		font-weight: $fwExtraBold;
+	}
+	&.h5 {
+		font-size: 20px;
+		line-height: 25px;
+		font-weight: $fwExtraBold;
+	}
+	&.h6 {
+		font-size: 18px;
+		line-height: 24px;
+		font-weight: $fwExtraBold;
+	}
+	&.subtitle1 {
+		font-size: 20px;
+		line-height: 25px;
+		font-weight: $fwExtraBold;
+	}
+	&.subtitle2 {
+		font-size: 18px;
+		line-height: 24px;
+		font-weight: $fwExtraBold;
+	}
+	&.body1 {
+		font-size: 16px;
+		line-height: 25px;
+		font-weight: $fwLight;
+	}
+	&.body2 {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: $fwLight;
+	}
+	&.caption {
+		font-size: 14px;
+		line-height: 16px;
+		font-weight: $fwLight;
+	}
+	&.button {
+		font-size: 18px;
+		line-height: 26px;
+		font-weight: $fwExtraBold;
+	}
+	&.overline {
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: $fwBold;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	/* following are custom for this project */
+	&.bodyLarge {
+		font-size: 25px;
+		line-height: 32px;
+		font-weight: $fwLight;
+	}
+	&.title1 {
+		font-size: 16px;
+		line-height: 18px;
+		font-weight: $fwExtraBold;
+	}
+	&.title1Small {
+		font-size: 14px;
+		line-height: 16px;
+		font-weight: $fwExtraBold;
+	}
+	&.title2 {
+		font-size: 16px;
+		line-height: 18px;
+		font-weight: $fwBold;
+	}
+	&.title2Small {
+		font-size: 14px;
+		line-height: 18px;
+		font-weight: $fwBold;
+	}
+	&.subtitle {
+		font-size: 14px;
+		line-height: 20px;
+		font-weight: $fwLight;
+	}
+	&.link1 {
+		font-size: 16px;
+		line-height: 18px;
+		font-weight: $fwExtraBold;
+	}
+	&.link2 {
+		font-size: 14px;
+		line-height: 16px;
+		font-weight: $fwExtraBold;
+	}
+	&.buttonLarge {
+		font-size: 25px;
+		line-height: 34px;
+		font-weight: $fwExtraBold;
+	}
+	&.bodyList {
+		font-size: 16px;
+		line-height: 28px;
+		font-weight: $fwLight;
+	}
+	&.rsNote {
+		font-style: italic;
+	}
+}
+.small .rsLabel {
+	&.h1 {
+		font-size: 36px;
+		line-height: 38px;
+	}
+}

@@ -1,0 +1,79 @@
+// rsToastify toast styling
+$toastSuccessColor: #deeed9;
+$toastSuccessHighlightColor: #208d00;
+
+$toastInfoColor: #e7f2fa;
+$toastInfoHighlightColor: #5da9df;
+
+$toastWarningColor: #fff5d9;
+$toastWarningHighlightColor: #ffb900;
+
+$toastErrorColor: #fadcd9;
+$toastErrorHighlightColor: #dd1100;
+
+.Toastify {
+	.Toastify__close-button {
+		color: #878a8e;
+		align-self: center;
+	}
+
+	.rsToastMessage {
+		.rsLabel {
+			color: black;
+		}
+		&.success {
+			.rsIcon {
+				color: white;
+				background-color: $toastSuccessHighlightColor;
+				border-radius: 50%;
+				padding: 5px;
+			}
+			span.rsIcon {
+				font-size: 11px !important;
+			}
+		}
+		&.error {
+			.rsIcon {
+				color: $toastErrorHighlightColor;
+			}
+		}
+		&.info {
+			.rsIcon {
+				color: $toastInfoHighlightColor;
+			}
+		}
+		&.warning {
+			.rsIcon {
+				color: $toastWarningHighlightColor;
+			}
+		}
+	}
+
+	.Toastify__toast--error {
+		background: $toastErrorColor;
+	}
+	.Toastify__toast--success {
+		background: $toastSuccessColor;
+	}
+	.Toastify__toast--info {
+		background: $toastInfoColor;
+	}
+	.Toastify__toast--warning {
+		background: $toastWarningColor;
+	}
+
+	.Toastify__progress-bar {
+		&.Toastify__progress-bar--error {
+			background-color: $toastErrorHighlightColor;
+		}
+		&.Toastify__progress-bar--success {
+			background-color: $toastSuccessHighlightColor;
+		}
+		&.Toastify__progress-bar--info {
+			background-color: $toastInfoHighlightColor;
+		}
+		&.Toastify__progress-bar--warning {
+			background-color: $toastWarningHighlightColor;
+		}
+	}
+}
