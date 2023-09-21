@@ -142,5 +142,5 @@ export type { TooltipWrapperProps, TooltipProperties } from './tooltip/tooltipWr
 // TODO: find a new place for this
 // Path: src/components/http
 
-export { default as Http } from './http/HttpClient';
+export { default as HttpClient } from './http/HttpClient';
 export type { RsErrorData, RsResponseData } from './http/HttpClient';

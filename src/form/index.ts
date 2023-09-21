@@ -9,5 +9,4 @@ export { EmailRegex, InvalidCharactersRegex, NameRegex, RsFormControl } from './
 
 export { RsFormGroup } from './FormGroup';
 
-export { RsValidator } from './Validator';
-export type { RsValidatorEnum } from './Validator';
+export { RsValidator, RsValidatorEnum } from './Validator';
