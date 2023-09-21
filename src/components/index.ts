@@ -138,3 +138,9 @@ export {
 	TOOLTIP_DEFAULT_SHOW_DELAY
 } from './tooltip/tooltipWrapper/TooltipWrapper';
 export type { TooltipWrapperProps, TooltipProperties } from './tooltip/tooltipWrapper/TooltipWrapper';
+
+// TODO: find a new place for this
+// Path: src/components/http
+
+export { default as Http } from './http/HttpClient';
+export type { RsErrorData, RsResponseData } from './http/HttpClient';
