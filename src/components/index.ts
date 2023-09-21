@@ -11,6 +11,7 @@
  * filterColumn
  * filterDropdownCell
  * filterInputCell
+ * formWrapper
  * icon
  * img
  * input
@@ -64,6 +65,9 @@ export type { FilterDropdownCellProps } from './filterDropdownCell/FilterDropdow
 
 export { default as FilterInputCell } from './filterInputCell/FilterInputCell';
 export type { FilterInputCellProps } from './filterInputCell/FilterInputCell';
+
+export { default as FormWrapper } from './formWrapper/FormWrapper';
+export type { FormWrapperProps } from './formWrapper/FormWrapper';
 
 export { default as Icon } from './icon/Icon';
 export type { IconProps } from './icon/Icon';
@@ -122,3 +126,15 @@ export type { ToastMessageProps } from './toastMessage/ToastMessage';
 
 export { default as View } from './view/View';
 export type { ViewProps, ReactPage } from './view/View';
+
+// TODO: move this into seperate module
+// Path: src/components/tooltip
+export { default as TooltipMessage } from './tooltip/tooltipMessage/TooltipMessage';
+export type { TooltipMessageProps } from './tooltip/tooltipMessage/TooltipMessage';
+
+export {
+	default as TooltipWrapper,
+	TOOLTIP_DEFAULT_HIDE_DELAY,
+	TOOLTIP_DEFAULT_SHOW_DELAY
+} from './tooltip/tooltipWrapper/TooltipWrapper';
+export type { TooltipWrapperProps, TooltipProperties } from './tooltip/tooltipWrapper/TooltipWrapper';
