@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Table.scss';
 import FilterColumn from '../filterColumn/FilterColumn';
 import Box from '../box/Box';
-import { RsFormControl } from '../form/FormControl';
+import { RsFormControl } from '../../form/FormControl';
 import debounce from 'lodash.debounce';
 import Input from '../input/Input';
 

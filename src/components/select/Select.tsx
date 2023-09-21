@@ -4,7 +4,7 @@ import ReactSelect, { SelectComponentsConfig, StylesConfig } from 'react-select'
 import { ActionMeta, OptionsType, Theme, ValueType } from 'react-select/src/types';
 import Box from '../box/Box';
 import clone from 'lodash.clone';
-import { RsFormControl } from '../form/FormControl';
+import { RsFormControl } from '../../form/FormControl';
 import Creatable from 'react-select/creatable';
 
 type MakeAllNever<T extends Object> = { [K in keyof T]: never };

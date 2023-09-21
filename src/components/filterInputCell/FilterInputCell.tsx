@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './FilterInputCell.scss';
-import { RsFormControl } from '../form/FormControl';
+import { RsFormControl } from '../../form/FormControl';
 import Input from '../input/Input';
 import debounce from 'lodash.debounce';
 

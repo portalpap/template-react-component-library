@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Input.scss';
 import clone from 'lodash.clone';
-import { RsFormControl } from '../form/FormControl';
+import { RsFormControl } from '../../form/FormControl';
 import Icon from '../icon/Icon';
 
 export type AutoCompleteType =
