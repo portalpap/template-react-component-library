@@ -7,7 +7,7 @@ import clone from 'lodash.clone';
 import { RsFormControl } from '../../form/FormControl';
 import Creatable from 'react-select/creatable';
 
-type MakeAllNever<T extends Object> = { [K in keyof T]: never };
+type MakeAllNever<T extends object> = { [K in keyof T]: never };
 export type OptionType<V = string | number, L = string | number> = {
 	value: V;
 	label: L;
@@ -210,7 +210,8 @@ const Select: React.FC<SelectProps> = (props) => {
 	}, [theme, hasError, className]);
 
 	function isGroupOption(options: OptionType[] | GroupType[]): options is GroupType[] {
-		return options[0].hasOwnProperty('options');
+		const hasOptionsProperty = Object.prototype.hasOwnProperty.call(options[0], 'options');
+		return hasOptionsProperty;
 	}
 
 	useEffect(() => {
