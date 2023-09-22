@@ -1,6 +1,5 @@
 import React from 'react';
 import './FilterDropdownCell.scss';
-
 import Select, { SelectProps } from '../select/Select';
 
 export type FilterDropdownCellProps = {

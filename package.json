@@ -3,25 +3,36 @@
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/portalpap"
 	},
-	"version": "0.5.54",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/index.d.ts",
+	"version": "0.5.55",
 	"description": "A simple template for a custom React component library",
 	"scripts": {
-		"build": "yarn remove:dist && yarn rollup",
-		"remove:dist": "rmdir /s /q \"./dist/\"",
+		"build": "yarn rollup",
 		"rollup": "rollup -c --context=window --environment BUILD:production",
-		"prepare": "yarn build"
+		"prettier:check": "prettier --check ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}",
+		"prettier:fix-all": "prettier --write ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}",
+		"eslint:check": "eslint --ext tsx --ext ts src && tsc --noEmit",
+		"eslint:fix-all": "eslint --ext tsx --ext ts src --fix",
+		"prepare": "yarn rollup"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/portalpap/template-react-component-library.git"
 	},
-	"author": "Troomi Wireless",
-	"license": "ISC",
+	"author": "Cole Nelson",
+	"license": "MIT",
 	"exports": {
 		".": {
 			"import": "./dist/esm/index.js",
 			"require": "./dist/cjs/index.js"
 		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx,html,scss,css,md,json}": [
+			"prettier --write"
+		]
 	},
 	"devDependencies": {
 		"@mdx-js/react": "^2.1.2",
@@ -35,13 +46,27 @@
 		"@types/lodash.debounce": "^4.0.6",
 		"@types/react": "^18.0.15",
 		"@types/react-select": "4.0.18",
+		"@typescript-eslint/eslint-plugin": "^5.62.0",
+		"@typescript-eslint/parser": "^5.62.0",
 		"axios": "^0.19.2",
 		"classnames": "^2.3.1",
+		"eslint": "^8.48.0",
+		"eslint-config-4catalyzer-typescript": "^3.3.0",
+		"eslint-import-resolver-node": "^0.3.9",
+		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"eslint-plugin-mocha": "^10.1.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.3",
 		"identity-obj-proxy": "^3.0.0",
+		"lint-staged": "^11.2.6",
 		"lodash.clone": "^4.5.0",
 		"lodash.clonedeep": "^4.5.0",
 		"lodash.debounce": "^4.0.8",
 		"postcss": "^8.4.30",
+		"prettier": "2.3.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.7.1",
@@ -49,6 +74,7 @@
 		"react-toastify": "7.0.4",
 		"resize-observer-polyfill": "^1.5.1",
 		"rollup": "^2.60.0",
+		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-dts": "^4.0.1",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-postcss": "^4.0.1",
@@ -59,20 +85,20 @@
 	},
 	"peerDependencies": {
 		"@types/react": ">=16.14.8",
-		"react": ">=16.14.0",
+		"@types/react-select": "4.0.18",
 		"react-dom": ">=16.14.0",
+		"react-select": "4.3.1",
+		"classnames": "^2.3.1",
+		"react": ">=16.14.0",
 		"axios": "^0.19.2"
 	},
 	"peerDependenciesMeta": {
 		"@types/react": {
 			"optional": true
+		},
+		"@types/react-select": {
+			"optional": true
 		}
 	},
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"files": [
-		"dist"
-	],
-	"types": "dist/index.d.ts",
 	"packageManager": "yarn@1.22.19"
 }
