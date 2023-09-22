@@ -126,7 +126,7 @@ class BrowserNavigation {
 			return;
 		}
 
-		if (window.hasOwnProperty('showBrowseLogs')) console.log('POP STATE (ALLOW): ', e.state);
+		if (Object.prototype.hasOwnProperty.call(window, 'showBrowseLogs')) console.log('POP STATE (ALLOW): ', e.state);
 
 		let { key } = e.state;
 
@@ -156,7 +156,7 @@ class BrowserNavigation {
 			return;
 		}
 
-		if (window.hasOwnProperty('showBrowseLogs')) console.log('POP STATE (TEST): ', e.state);
+		if (Object.prototype.hasOwnProperty.call(window, 'showBrowseLogs')) console.log('POP STATE (TEST): ', e.state);
 
 		let { key } = e.state;
 
@@ -217,14 +217,14 @@ class BrowserNavigation {
 	}
 
 	fireBackEvent(newHistory: NavigationHistoryExtra, prevHistory: NavigationHistoryExtra) {
-		if (window.hasOwnProperty('showBrowseLogs')) console.log('Browser back clicked');
+		if (Object.prototype.hasOwnProperty.call(window, 'showBrowseLogs')) console.log('Browser back clicked');
 		for (let i in this.backCallbacks) {
 			this.backCallbacks[i](newHistory.state, prevHistory.state);
 		}
 	}
 
 	fireForwardEvent(newHistory: NavigationHistoryExtra, prevHistory: NavigationHistoryExtra) {
-		if (window.hasOwnProperty('showBrowseLogs')) console.log('Browser forward clicked');
+		if (Object.prototype.hasOwnProperty.call(window, 'showBrowseLogs')) console.log('Browser forward clicked');
 		for (let i in this.forwardCallbacks) {
 			this.forwardCallbacks[i](newHistory.state, prevHistory.state);
 		}
@@ -241,7 +241,7 @@ class BrowserNavigation {
 	}
 
 	printAllViewHistory() {
-		if (!window.hasOwnProperty('showBrowseLogs')) return;
+		if (!Object.prototype.hasOwnProperty.call(window, 'showBrowseLogs')) return;
 		let historyLog: any = {};
 
 		let count = 1;

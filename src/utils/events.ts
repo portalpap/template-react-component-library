@@ -2,7 +2,7 @@ interface Handler {
 	[id: string]: any;
 }
 
-class Events {
+class TrNavigationEvents {
 	handlers: Handler = {};
 	lastId = Date.now();
 
@@ -30,4 +30,4 @@ class Events {
 	}
 }
 
-export default new Events();
+export default new TrNavigationEvents();
