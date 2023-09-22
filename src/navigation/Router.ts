@@ -21,7 +21,7 @@ export interface TrUrlParamLookup {
 	alias?: string;
 }
 
-export interface TrRouteDetails {
+export interface TrRoute {
 	/** The path to be used when loading the page component, '*' is any path */
 	path: string;
 	/** The page component to be loaded when the path is matched */
@@ -36,12 +36,12 @@ export interface TrRouteDetails {
 	options?: NavigateOptions;
 }
 
-interface TrRouteDetailsWithPathParams extends TrRouteDetails {
+interface TrRouteWithPathParams extends TrRoute {
 	/** The path parameters to be used when loading the page component */
 	pathParams?: { [key: string]: string };
 }
 
-export interface TrRouterPermissionDetails<T = string> extends TrRouteDetailsWithPathParams {
+export interface TrRouteWithPermissions<T = string> extends TrRouteWithPathParams {
 	/** The permissions required to view the page */
 	permissions?: T[];
 }
@@ -98,10 +98,6 @@ export interface TrRouterConfig {
  *     ]);
  *   }
  *
- *   getInstance() {
- *     return globalRouter;
- *   }
- *
  *   getUserRole() {
  *     // your logic here to get the current user role
  *     return "your-user-role-here";
@@ -112,8 +108,8 @@ export interface TrRouterConfig {
  * @property {boolean} goingBack - If we are currently going back
  * @property {boolean} navigating - If we are currently navigating
  * @property {TrRouterConfig} routerConfig - The router config
- * @property {TrRouteDetails | undefined} notFoundRoute - The not found route
- * @property {TrRouteDetails[]} routes - The routes
+ * @property {TrRoute | undefined} notFoundRoute - The not found route
+ * @property {TrRoute[]} routes - The routes
  * @property {string[]} viewHistory - The view history
  * @property {string} initialStartPathQuery - The initial start path query
  * @property {boolean} initialPathLoadAttempted - If the initial path load has been attempted
@@ -121,8 +117,8 @@ export interface TrRouterConfig {
  */
 abstract class TrRouter {
 	private views: { [key: string]: View } = {};
-	private routes: TrRouterPermissionDetails[] = [];
-	private notFoundRoute: TrRouteDetails | undefined;
+	private routes: TrRouteWithPermissions[] = [];
+	private notFoundRoute: TrRoute | undefined;
 	private viewHistory: string[] = [];
 	private navigating = false;
 	private readonly routerConfig: TrRouterConfig = {
@@ -263,15 +259,17 @@ abstract class TrRouter {
 
 	/**
 	 * @abstract
-	 * Add view to router
-	 */
-	abstract getInstance(): TrRouter;
-
-	/**
-	 * @abstract
 	 * use this for permission based routing
+	 * This method is protected and should be called internally
+	 * @param {args} args Extra arguments if needed
+	 * @returns {string | undefined} The user role
+	 * @example
+	 * getUserRole() {
+	 *  // your logic here to get the current user role
+	 * 	return "your-user-role-here";
+	 * }
 	 */
-	abstract getUserRole(): string | undefined;
+	protected abstract getUserRole(): string | undefined;
 
 	/**
 	 * Returns the current active name
@@ -282,7 +280,7 @@ abstract class TrRouter {
 	}
 
 	/**
-	 * Checks roles authorization depending on the permissions required for a route
+	 * Checks roles authorization depending on the permissions requipared for a route
 	 * @returns {boolean} determined if user is allowed to view/interact with page
 	 */
 	isAuthorizedToViewPage(path: string): boolean {
@@ -307,7 +305,7 @@ abstract class TrRouter {
 	 * Dyanmically adds a route
 	 * @param route
 	 */
-	addRoute(route: TrRouteDetails) {
+	addRoute(route: TrRoute) {
 		this.routes.push(route);
 	}
 
@@ -315,7 +313,7 @@ abstract class TrRouter {
 	 * Adds routes to the known static routes for the application. Must be called before any views are rendered.
 	 * @param {RouteDetails[]} initialRoutes - The static routes used on start
 	 */
-	loadStaticRoutes(initialRoutes: TrRouteDetails[]) {
+	loadStaticRoutes(initialRoutes: TrRoute[]) {
 		this.routes = initialRoutes;
 		this.notFoundRoute = this.routes.find((route) => {
 			return route.path === '*';
@@ -606,7 +604,7 @@ abstract class TrRouter {
 		return !prevent;
 	}
 
-	private checkTrRouteGuard(routeDetails: TrRouteDetails): boolean {
+	private checkTrRouteGuard(routeDetails: TrRoute): boolean {
 		if (!routeDetails.TrrouteGuard) return true;
 
 		let result = routeDetails.TrrouteGuard(routeDetails.path);
@@ -713,7 +711,7 @@ abstract class TrRouter {
 
 		const pathNoQuery = newState.path.split('?')[0];
 
-		let routeDetails = this.getRouteDetailsForPath(newState.path) as TrRouteDetails;
+		let routeDetails = this.getRouteDetailsForPath(newState.path) as TrRoute;
 
 		this.setActiveView(newState.viewName);
 		await this.views[newState.viewName].back(routeDetails.page, newState.path);
@@ -734,7 +732,7 @@ abstract class TrRouter {
 		DomUtils.addClass(activeTab, 'active-tab');
 	}
 
-	private getRouteDetailsForPath(path: string): TrRouterPermissionDetails | undefined {
+	private getRouteDetailsForPath(path: string): TrRouteWithPermissions | undefined {
 		let pathNoQueryNoHash = path.split('?')[0].split('#')[0];
 		let viewNames = Object.keys(this.views);
 
@@ -774,7 +772,7 @@ abstract class TrRouter {
 		return foundRoute;
 	}
 
-	private hasInsufficientPermissionsForRoute(route: TrRouterPermissionDetails): boolean {
+	private hasInsufficientPermissionsForRoute(route: TrRouteWithPermissions): boolean {
 		const userRole = this.getUserRole();
 		return !!userRole && !!route.permissions && !route.permissions.includes(userRole);
 	}
