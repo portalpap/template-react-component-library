@@ -8,7 +8,8 @@
 	"scripts": {
 		"build": "yarn remove:dist && yarn rollup",
 		"remove:dist": "rmdir /s /q \"./dist/\"",
-		"rollup": "rollup -c --context=window --environment BUILD:production"
+		"rollup": "rollup -c --context=window --environment BUILD:production",
+		"package": "yarn install && yarn rollup && yarn build"
 	},
 	"repository": {
 		"type": "git",
